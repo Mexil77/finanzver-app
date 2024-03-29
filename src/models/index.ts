@@ -1,2 +1,3 @@
 export { default as User } from "./user";
-export { default as Categorie } from "./categorie";
+export { default as Category } from "./category";
+export { default as Charge } from "./charge";

@@ -3,7 +3,7 @@ import { Schema, model, models } from "mongoose";
 const schema = new Schema(
 	{
 		name: String,
-		father: { type: Schema.Types.ObjectId, ref: "Categorie" },
+		father: { type: Schema.Types.ObjectId, ref: "Category" },
 		mandatorySpend: Boolean,
 		color: String,
 		budget: { type: Number, min: 0 },
@@ -14,4 +14,4 @@ const schema = new Schema(
 	}
 );
 
-export default models?.Categorie || model("Categorie", schema);
+export default models?.Category || model("Category", schema);

@@ -1,12 +1,12 @@
 import { connectDB } from "@/libs/mongodb";
-import { Category } from "@/models";
+import { Charge } from "@/models";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
 	await connectDB();
 
-	const categories = await Category.find();
-	return NextResponse.json({ code: 200, data: categories });
+	const charges = await Charge.find();
+	return NextResponse.json({ code: 200, data: charges });
 }
 
 export async function POST(request: NextRequest) {
@@ -14,6 +14,6 @@ export async function POST(request: NextRequest) {
 
 	const data = await request.json();
 
-	const categoryCreated = await Category.create(data);
-	return NextResponse.json(categoryCreated);
+	const chargeCreated = await Charge.create(data);
+	return NextResponse.json(chargeCreated);
 }
