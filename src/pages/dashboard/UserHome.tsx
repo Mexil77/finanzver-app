@@ -18,7 +18,11 @@ export default function UserHome({}: Props) {
 					>
 						Categorias
 					</button>
-					<button type="button" className="btn btn-primary">
+					<button
+						type="button"
+						className="btn btn-primary"
+						onClick={() => router.push("/categories/Categories")}
+					>
 						Estadisticas
 					</button>
 					<button type="button" className="btn btn-primary">
