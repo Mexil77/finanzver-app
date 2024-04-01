@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/globals.css";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface FormState {
 	name: string;
@@ -17,6 +17,7 @@ type Props = {};
 
 export default function AddCategorie({}: Props) {
 	const router = useRouter();
+	const searchParams = useSearchParams();
 
 	const [formState, setFormState] = useState<FormState>({
 		name: "",
@@ -27,8 +28,13 @@ export default function AddCategorie({}: Props) {
 	const [loading, setLoading] = useState<Boolean>(false);
 
 	async function saveCategorie(request: FormState) {
+		const level = searchParams?.get("level");
+		const parent = searchParams?.get("id_parent");
+		console.log(level);
+		console.log(parent);
+
 		setLoading(true);
-		await axios.post("/api/categories", { ...request, level: 0 });
+		await axios.post("/api/categories", { ...request, level, parent });
 		setLoading(false);
 		router.push("/");
 	}

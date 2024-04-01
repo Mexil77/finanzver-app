@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useRouter } from "next/navigation";
 
 type Props = {};
@@ -14,7 +13,9 @@ export default function UserHome({}: Props) {
 					<button
 						type="button"
 						className="btn btn-primary"
-						onClick={() => router.push("/categories/AddCategory")}
+						onClick={() =>
+							router.push("/categories/AddCategory?level=0&id_parent=")
+						}
 					>
 						Categorias
 					</button>
