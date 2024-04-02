@@ -5,8 +5,8 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET() {
 	await connectDB();
 
-	const charges = await Charge.find();
-	return NextResponse.json({ code: 200, data: charges });
+	const charges = await Charge.find().sort({ createdAt: -1 });
+	return NextResponse.json(charges);
 }
 
 export async function POST(request: NextRequest) {

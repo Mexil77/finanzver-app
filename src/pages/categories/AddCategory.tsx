@@ -30,8 +30,6 @@ export default function AddCategorie({}: Props) {
 	async function saveCategorie(request: FormState) {
 		const level = searchParams?.get("level");
 		const parent = searchParams?.get("id_parent");
-		console.log(level);
-		console.log(parent);
 
 		setLoading(true);
 		await axios.post("/api/categories", { ...request, level, parent });

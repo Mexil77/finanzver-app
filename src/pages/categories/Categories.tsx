@@ -26,11 +26,7 @@ export default function Categories({}: Props) {
 	useEffect(() => {
 		const fetchCategories = async () => {
 			try {
-				const response = await axios.get("/api/categories", {
-					params: {
-						parent: "",
-					},
-				});
+				const response = await axios.get("/api/categories");
 				if (response.data) {
 					setCategories(response.data);
 				}
@@ -72,7 +68,7 @@ export default function Categories({}: Props) {
 					parent: idParent,
 				},
 			});
-			if (response.data) {
+			if (response.data && response.data.length > 0) {
 				setCategories(
 					setFetchCategories(categoriesArr, response.data, idParent)
 				);

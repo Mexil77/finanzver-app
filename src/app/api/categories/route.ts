@@ -2,15 +2,18 @@ import { connectDB } from "@/libs/mongodb";
 import { Category } from "@/models";
 import { NextRequest, NextResponse } from "next/server";
 
+interface RequestParams {
+	parent?: string | null;
+}
+
 export async function GET(request: NextRequest) {
 	await connectDB();
 
-	const parent =
-		request.nextUrl.searchParams.get("parent") === ""
-			? null
-			: request.nextUrl.searchParams.get("parent");
+	let requestParams: RequestParams = {};
+	if (request.nextUrl.searchParams.get("parent") !== "")
+		requestParams.parent = request.nextUrl.searchParams.get("parent");
 
-	const categories = await Category.find({ parent });
+	const categories = await Category.find(requestParams);
 	return NextResponse.json(categories);
 }
 
