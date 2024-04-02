@@ -3,7 +3,7 @@ import { Schema, model, models } from "mongoose";
 const schema = new Schema(
 	{
 		name: String,
-		father: { type: Schema.Types.ObjectId, ref: "Category" },
+		parent: { type: Schema.Types.ObjectId, ref: "Category" },
 		mandatorySpend: Boolean,
 		color: String,
 		budget: { type: Number, min: 0 },
