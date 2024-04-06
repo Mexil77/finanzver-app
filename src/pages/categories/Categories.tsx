@@ -118,6 +118,15 @@ export default function Categories({}: Props) {
 			<Link href={"/"} style={{ textDecoration: "none" }}>
 				<h1>Categorias</h1>
 			</Link>
+			<button
+				type="button"
+				className="btn btn-primary"
+				onClick={() =>
+					router.push("/categories/AddCategory?level=0&id_parent=")
+				}
+			>
+				Nueva Caterogira
+			</button>
 			{generateCategoriesList(categoriesArr)}
 		</div>
 	);
