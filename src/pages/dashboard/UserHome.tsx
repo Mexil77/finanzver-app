@@ -63,34 +63,10 @@ export default function UserHome({}: Props) {
 	}, []);
 	return (
 		<div className="container">
-			<div className="d-flex justify-content-between">
+			<div className="d-flex justtify-content-between">
 				<h1>Tu Balance</h1>
-				<div className="btn-group" role="group" aria-label="Basic example">
-					<button
-						type="button"
-						className="btn btn-primary"
-						onClick={() =>
-							router.push("/categories/AddCategory?level=0&id_parent=")
-						}
-					>
-						Categorias
-					</button>
-					<button
-						type="button"
-						className="btn btn-primary"
-						onClick={() => router.push("/categories/Categories")}
-					>
-						Estadisticas
-					</button>
-					<button
-						type="button"
-						className="btn btn-primary"
-						onClick={() => console.log(charges)}
-					>
-						Configuracion
-					</button>
-				</div>
 			</div>
+			<h5>El mes pasado te sobro: ${principalValues.totalBefore}</h5>
 			<ul className="list-group">
 				<li className="list-group-item d-flex justify-content-between align-items-center list-group-item-primary">
 					Saldo en cuenta
@@ -102,12 +78,6 @@ export default function UserHome({}: Props) {
 					Disponible para gastar
 					<span className="badge text-bg-success rounded-pill">
 						${principalValues.totalToSpend}
-					</span>
-				</li>
-				<li className="list-group-item d-flex justify-content-between align-items-center list-group-item-warning">
-					Saldo anterior
-					<span className="badge text-bg-warning rounded-pill">
-						${principalValues.totalBefore}
 					</span>
 				</li>
 				<li className="list-group-item d-flex justify-content-between align-items-center list-group-item-info">
