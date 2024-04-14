@@ -47,7 +47,7 @@ export default function UserHome({}: Props) {
 		};
 		const fetchTotalSpend = async () => {
 			try {
-				const response = await axios.get("/api/charges/totalSpend");
+				const response = await axios.post("/api/charges/totalSpend");
 				if (response.data) {
 					setPrincipalValues({
 						...principalValues,
